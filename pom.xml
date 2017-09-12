@@ -6,7 +6,164 @@
 
     <groupId>by.agro</groupId>
     <artifactId>agroman</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
+    <packaging>pom</packaging>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>by.agro</groupId>
+                <artifactId>_logging-dependencies</artifactId>
+                <version>1.0</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>by.agro</groupId>
+                <artifactId>_unit-test-dependencies</artifactId>
+                <version>1.0</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>by.agro</groupId>
+                <artifactId>_persistent-dependencies</artifactId>
+                <version>1.0</version>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>by.agro</groupId>
+                <artifactId>system-pub</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>by.agro</groupId>
+                <artifactId>system-dao</artifactId>
+                <version>1.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>4.3.8.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-pool</groupId>
+                <artifactId>commons-pool</artifactId>
+                <version>1.6</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-dbcp</groupId>
+                <artifactId>commons-dbcp</artifactId>
+                <version>1.4</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-dbutils</groupId>
+                <artifactId>commons-dbutils</artifactId>
+                <version>1.5</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.41</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>2.4.7</version>
+            </dependency>
+            <dependency>
+                <groupId>by.agro</groupId>
+                <artifactId>database-connection-pool</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-core</artifactId>
+                <version>4.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.4</version>
+            </dependency>
+
+            <!--logging-->
+            <dependency>
+                <groupId>by.agro</groupId>
+                <artifactId>_logging-format</artifactId>
+                <version>1.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>2.8.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>2.8.2</version>
+            </dependency>
+            <!-- This lib proxy logging from libs that using log4j 1.2 -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-1.2-api</artifactId>
+                <version>2.8.2</version>
+            </dependency>
+            <!-- This lib proxy logging from libs that using slf4j -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>2.8.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.spockframework</groupId>
+                <artifactId>spock-core</artifactId>
+                <version>1.0-groovy-2.4</version>
+            </dependency>
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib-nodep</artifactId>
+                <version>3.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.16.8</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>_logging-format</module>
+        <module>_logging-dependencies</module>
+        <module>_unit-test-dependencies</module>
+        <module>database-connection-pool</module>
+        <module>_persistent-dependencies</module>
+
+        <module>system-pub</module>
+        <module>system-dao</module>
+        <module>plants-service</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
