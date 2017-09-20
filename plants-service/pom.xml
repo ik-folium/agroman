@@ -14,6 +14,11 @@
     <dependencies>
         <dependency>
             <groupId>by.agro</groupId>
+            <artifactId>_logging-dependencies</artifactId>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>by.agro</groupId>
             <artifactId>_unit-test-dependencies</artifactId>
             <type>pom</type>
         </dependency>

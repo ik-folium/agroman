@@ -16,4 +16,16 @@ public class SimplePlantPlantingService {
 
         plantPlantingDao.save(planting);
     }
+
+    public void updatePlantingPlant(UpdatePlantingPlantInfoDto updatePlantingPlantInfoDto) {
+
+        PlantPlanting planting = new PlantPlanting();
+        
+        planting.setId(updatePlantingPlantInfoDto.getId());
+        planting.setName(updatePlantingPlantInfoDto.getName());
+        planting.setSowingArea(updatePlantingPlantInfoDto.getSowingArea());
+        planting.setMaintainer(updatePlantingPlantInfoDto.getMaintainer());
+
+        plantPlantingDao.update(planting);
+    }
 }

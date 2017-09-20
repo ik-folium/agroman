@@ -1,9 +1,11 @@
 package by.agro.plant;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-@Data
-public class PlantPlanting {
+@Getter
+@AllArgsConstructor
+public class UpdatePlantingPlantInfoDto {
 
     private long id;
     private String name;

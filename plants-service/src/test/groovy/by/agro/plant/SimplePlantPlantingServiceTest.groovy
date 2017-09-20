@@ -19,4 +19,16 @@ class SimplePlantPlantingServiceTest extends Specification {
                 plant.name == 'potato' && plant.sowingArea == 10.5 && plant.maintainer == 'Vasya Pupkin'
             })
     }
+
+    def "should delegate updating to dao"() {
+
+        given:
+            def updatePlantingPlantDto = new UpdatePlantingPlantInfoDto(1, 'potato', 10.5, 'Vasya Pupkin')
+        when:
+            service.updatePlantingPlant(updatePlantingPlantDto)
+        then:
+            1 * dao.update({ PlantPlanting plant ->
+                plant.id == 1 && plant.name == 'potato' && plant.sowingArea == 10.5 && plant.maintainer == 'Vasya Pupkin'
+            })
+    }
 }
