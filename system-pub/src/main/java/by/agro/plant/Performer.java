@@ -9,10 +9,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class PlantPlanting {
+public class Performer {
 
     private long id;
-    private String name;
-    private double sowingArea;
-    private String maintainer;
+    private String firstName;
+    private String lastName;
+    private int age;
 }
