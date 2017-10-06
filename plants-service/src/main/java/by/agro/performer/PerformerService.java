@@ -15,5 +15,4 @@ public interface PerformerService {
     void deletePerformer(DeletePerformerDto deletePerformerDto);
 
     List<Performer> findAllPerformers();
-
 }

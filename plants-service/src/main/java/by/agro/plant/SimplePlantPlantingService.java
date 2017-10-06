@@ -45,7 +45,6 @@ public class SimplePlantPlantingService implements PlantPlantingService {
     public void deletePlantingPlant(DeletePlantingPlantDto deletePlantingPlantDto) {
 
         plantPlantingDao.delete(deletePlantingPlantDto.getId());
-
     }
 
     @Override

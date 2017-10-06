@@ -16,7 +16,7 @@ class SimplePerformerServiceTest extends Specification {
         when:
             performersTest.addPerformer(addPerformerDto)
         then:
-            1 * dao.save({Performer performer ->
+            1 * dao.save({ Performer performer ->
                 performer.id == 1 && performer.firstName == 'Kostya' && performer.lastName == 'Hard' && performer.age == 38
             })
     }

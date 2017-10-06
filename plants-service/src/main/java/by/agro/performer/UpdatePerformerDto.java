@@ -11,5 +11,4 @@ public class UpdatePerformerDto {
     private String firstName;
     private String lastName;
     private int age;
-
 }

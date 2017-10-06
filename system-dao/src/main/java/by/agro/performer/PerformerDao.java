@@ -1,6 +1,7 @@
 package by.agro.performer;
 
 import by.agro.plant.Performer;
+
 import java.util.List;
 
 public interface PerformerDao {
@@ -14,5 +15,4 @@ public interface PerformerDao {
     Performer delete(long id);
 
     List<Performer> findAll();
-
 }
