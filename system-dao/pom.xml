@@ -15,7 +15,11 @@
         <dependency>
             <groupId>by.agro</groupId>
             <artifactId>_persistent-dependencies</artifactId>
-            <version>1.0</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>by.agro</groupId>
+            <artifactId>_unit-test-dependencies</artifactId>
             <type>pom</type>
         </dependency>
 

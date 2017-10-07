@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface PlantPlantingDao {
 
-    PlantPlanting save(PlantPlanting plantPlanting);
+    void save(PlantPlanting plantPlanting);
 
-    PlantPlanting update(PlantPlanting plantPlanting);
+    void update(PlantPlanting plantPlanting);
 
     PlantPlanting get(long id);
 
