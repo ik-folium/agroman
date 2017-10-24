@@ -1,6 +1,5 @@
 package by.agro.performer
 
-import by.agro.plant.Performer
 import spock.lang.Specification
 
 class SimplePerformerServiceTest extends Specification {

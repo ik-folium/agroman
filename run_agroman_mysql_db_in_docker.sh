@@ -4,7 +4,7 @@ if [ -z "$OUTPUT" ]
 then
     echo "Container not exists. Run new one..."
 
-    docker run --name db --restart=always -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=test -v /data/mysql/agroman:/var/lib/mysql -p 33060:3306 -d mysql --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    docker run --name db --restart=always -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=test -p 33060:3306 -d mysql --character-set-server=utf8 --collation-server=utf8_unicode_ci
 
     echo "Wait 15s for container up and running to create all databases..."
     for i in $(seq 1 15); do sleep 1; echo -n '.'; done

@@ -61,4 +61,68 @@ class SpringJdbcPlantPlantingDaoTest extends Specification {
             savedPlant.created > 0
             savedPlant.modified > 0
     }
+
+    def "should update plant"() {
+
+        given: 'plant to update'
+            sql.execute('INSERT INTO Plants VALUES (2, "potato", 5.5, "John", 1, 1)')
+            def updatingPlant = new PlantPlanting()
+            updatingPlant.id = 2
+            updatingPlant.sowingArea = 12.5
+            updatingPlant.maintainer = 'SomeOne'
+            updatingPlant.modified = 100
+        when: 'updating plant with dao'
+            dao.update(updatingPlant)
+        then: 'db contains updated plant'
+            def updatedPlant = sql.rows('SELECT * FROM Plants WHERE id = 2')[0]
+            updatedPlant.id == 2
+            updatedPlant.sowingArea == 12.5
+            updatedPlant.maintainer == 'SomeOne'
+            updatedPlant.modified > 0
+    }
+
+    def "should delete plant"() {
+
+        given: 'plant to delete'
+            sql.execute('INSERT INTO Plants VALUES (3, "cucumber", 5.0, "Mom", 1, 1)')
+
+        def deletingPlant = new PlantPlanting()
+        deletingPlant.id = 3
+
+        when: 'deleting plant with dao'
+            dao.delete(deletingPlant.id)
+        then: 'db contains no deleted plant'
+            def deletedPlant = sql.rows('SELECT * FROM Plants WHERE id =3')[0]
+            deletedPlant == null
+
+    }
+
+    def "should return plant by id"() {
+
+        given: 'plant to return by id'
+            sql.execute('INSERT INTO Plants VALUES (2, "potato", 5.5, "John", 1, 1)')
+            def validPlant = new PlantPlanting()
+            validPlant.id = 2
+        when: 'returning plant with dao'
+            dao.get(validPlant.id)
+        then: 'displaying selected plant'
+            def displayedPlant = sql.rows('SELECT * FROM Plants WHERE id = 2')[0]
+            displayedPlant.id == 2
+    }
+
+    def "should return all plants"() {
+
+        given: 'plants to return'
+            sql.execute('INSERT INTO Plants VALUES (1, "tomato", 3.5, "Alexander", 1, 1)')
+            sql.execute('INSERT INTO Plants VALUES (2, "potato", 5.5, "John", 1, 1)')
+
+        when: 'returning plants with dao'
+            dao.findAll()
+        then: 'displaying all plants'
+            def displayedPlants = sql.rows('SELECT * FROM Plants')
+            displayedPlants != null
+            displayedPlants.size() == 2
+            displayedPlants[0].name == 'tomato'
+            displayedPlants[1].name == 'potato'
+    }
 }

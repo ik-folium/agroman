@@ -1,7 +1,5 @@
 package by.agro.performer;
 
-import by.agro.plant.Performer;
-
 import java.util.List;
 
 public interface PerformerService {

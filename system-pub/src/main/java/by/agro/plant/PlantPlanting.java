@@ -13,4 +13,7 @@ public class PlantPlanting {
     private String name;
     private double sowingArea;
     private String maintainer;
+    private long created;
+    private long modified;
+
 }

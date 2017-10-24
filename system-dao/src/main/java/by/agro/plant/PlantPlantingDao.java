@@ -10,7 +10,7 @@ public interface PlantPlantingDao {
 
     PlantPlanting get(long id);
 
-    PlantPlanting delete(long id);
+    void delete(long id);
 
     List<PlantPlanting> findAll();
 }
